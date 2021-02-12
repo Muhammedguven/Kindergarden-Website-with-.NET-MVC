@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnaokuluBilgiSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cocuk">
+    <Key>
+      <PropertyRef Name="Cad" />
+    </Key>
+    <Property Name="Cad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Csoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ccinsiyet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cyas" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cveliadi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Mesajlar">
+    <Key>
+      <PropertyRef Name="Others" />
+    </Key>
+    <Property Name="Etkinlik" Type="varchar" MaxLength="50" />
+    <Property Name="Yemek" Type="varchar" MaxLength="50" />
+    <Property Name="GeldiMi" Type="varchar" MaxLength="50" />
+    <Property Name="Others" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Ad" Type="varchar" MaxLength="50" />
+    <Property Name="Soyad" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sifre" Type="varchar" MaxLength="50" />
+    <Property Name="Tel" Type="varchar" MaxLength="50" />
+    <Property Name="CocukAdi" Type="varchar" MaxLength="50" />
+    <Property Name="Admin" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="AnaokuluBilgiSistemiModelStoreContainer">
+    <EntitySet Name="Cocuk" EntityType="Self.Cocuk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mesajlar" EntityType="Self.Mesajlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Kindergarden.Models.Users>
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head{
+    <style type="text/css">
+         body {
+            background-color: #0275d8;
+            background-image: url('../../Images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        table, tr , th {
+            color: #ffffff;
+        }
+        a.my-class { color: #f0ad4e }
+        a.navbar-brand{color: #f0ad4e }
+
+        button {
+            border-collapse: unset;
+            border-radius: 12px;
+            font-size: 24px;
+        }
+    </style>
+}
+
+
+<div class="form-group, center-block">
+
+    @try
+    {
+        foreach (Kindergarden.Models.Users a in Model)
+        {
+            <h2 class="text-center"> Hoş geldiniz @a.Ad </h2>
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
+
+    <button class="btn-warning" onclick="location.href='@Url.Action("OgrenciKayit", "Home")'">Öğrenci kaydı oluştur</button>
+    <br />
+    <br />
+    <button class="btn-warning" onclick="location.href='@Url.Action("Listele", "Home")'">Sınıf Listele</button>
+    <br />
+    <br />
+    <button class="btn-warning" onclick="location.href='@Url.Action("MesajGonder", "Home")'">Veliye Mesaj Gönder</button>
+    <br />
+    <br />
+    <button class="btn-warning" onclick="location.href='@Url.Action("Index", "Home")'">Çıkış Yap</button>
+</div>
+

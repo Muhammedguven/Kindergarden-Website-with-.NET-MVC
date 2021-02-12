@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Kindergarden.Models.Cocuk>
+
+    @{
+        ViewBag.Title = "Listele";
+    }
+
+    @section head{
+        <style type="text/css">
+              body {
+            background-color: #d9534f;
+            background-image: url('../../Images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        table, tr, th {
+            color: #ffffff;
+        }
+
+        a.my-class {
+            color: #f0ad4e
+        }
+
+        a.navbar-brand {
+            color: #ffffff
+        }
+        
+        button {
+            border-radius: 12px;
+            border-collapse: unset;
+            font-size: 24px;
+           
+        }
+            label{
+                color: white;
+            }
+        </style>
+    }
+<div>
+    <form asp-controller="HomeController" asp-action="CocukBilgileri">
+        <input type="text" name="SearchString" class="form-control" placeholder="Lütfen çocuğunuzun adını giriniz">
+        <br />
+        <input type="submit" value="Bilgileri Göster" class="btn btn-default" />
+    </form>
+</div>
+
+<table class="table">
+    
+    
+    
+    <tr>
+        <th>
+            <div>Öğrenci Adı</div>
+        </th>
+        <th>
+            <div>Öğrenci Soyadı</div>
+        </th>
+        <th>
+            <div>Öğrenci Cinsiyeti</div>
+        </th>
+        <th>
+            <div>Öğrenci Yaşı</div>
+        </th>
+        <th>
+            <div>Öğrenci Veli Adı</div>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Csoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ccinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cyas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cveliadi)
+            </td>
+        </tr>
+    }
+
+</table>
+    <div class="col-lg-push-10 ">
+        @Html.ActionLink("Geri Dön", "AdminIndex", null, new { @class = "my-class" })
+    </div>

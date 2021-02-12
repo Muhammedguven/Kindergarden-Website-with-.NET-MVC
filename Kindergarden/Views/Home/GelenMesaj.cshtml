@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Kindergarden.Models.Mesaj>
+
+@{
+    ViewBag.Title = "GelenMesaj";
+}
+@section head{
+    <style type="text/css">
+        body {
+            background-color: #d9534f;
+            background-image: url('../../Images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        table, tr, th {
+            color: #ffffff;
+        }
+
+        a.my-class {
+            color: #f0ad4e
+        }
+
+        a.navbar-brand {
+            color: #ffffff
+        }
+
+        button {
+            border-radius: 12px;
+            border-collapse: unset;
+            font-size: 24px;
+        }
+
+        label {
+            color: white;
+        }
+    </style>
+}
+
+<div>
+    <form asp-controller="HomeController" asp-action="GelenMesaj">
+        <input type="text" name="SearchString" class="form-control" placeholder="Lütfen e-mail adresinizi giriniz">
+        <input type="submit" value="Mesajları Göster" class="btn btn-default" />
+    </form>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Etkinlik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yemek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeldiMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Others)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etkinlik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yemek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeldiMi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Others)
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="col-lg-push-10 ">
+    @Html.ActionLink("Geri Dön", "VeliIndex", null, new { @class = "my-class" })
+</div>

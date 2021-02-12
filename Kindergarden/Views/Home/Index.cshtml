@@ -1,0 +1,76 @@
+﻿@model Kindergarden.Models.Users
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        body {
+            background-color: #f0ad4e;
+            margin: 0;
+            background-image: url('../../Images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+         
+        }
+        label{
+            color: #0275d8;
+        }
+        form{
+            border-bottom: 2px double #0275d8;
+        }
+    </style>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal , panel-body">
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sifre, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Sifre, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+            @Html.ValidationMessageFor(model => model.Sifre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+
+    <div class="form-group ">
+        @Html.LabelFor(model => model.Admin, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.EditorFor(model => model.Admin, new { htmlAttributes = new { @class = "form-control", placeholder = "Evet ya da Hayır yazınız" } })
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Giriş Yap" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="col-lg-push-10 ">
+    @Html.ActionLink("Buradan kayıt olabilirsin!", "Register")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

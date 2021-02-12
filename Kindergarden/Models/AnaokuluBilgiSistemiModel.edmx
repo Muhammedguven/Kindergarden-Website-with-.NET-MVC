@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnaokuluBilgiSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cocuk">
+          <Key>
+            <PropertyRef Name="Cad" />
+          </Key>
+          <Property Name="Cad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Csoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ccinsiyet" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cyas" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cveliadi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Etkinlik" Type="varchar" MaxLength="50" />
+          <Property Name="Yemek" Type="varchar" MaxLength="50" />
+          <Property Name="GeldiMi" Type="varchar" MaxLength="50" />
+          <Property Name="Others" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Ad" Type="varchar" MaxLength="50" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="CocukAdi" Type="varchar" MaxLength="50" />
+          <Property Name="Admin" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AnaokuluBilgiSistemiModelStoreContainer">
+          <EntitySet Name="Cocuk" EntityType="Self.Cocuk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnaokuluBilgiSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cocuk">
+          <Key>
+            <PropertyRef Name="Cad" />
+          </Key>
+          <Property Name="Cad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Csoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ccinsiyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cyas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cveliadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Etkinlik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Yemek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GeldiMi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Others" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CocukAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Admin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AnaokuluBilgiSistemiEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cocuk" EntityType="Self.Cocuk" />
+          <EntitySet Name="Mesaj" EntityType="Self.Mesaj" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnaokuluBilgiSistemiModelStoreContainer" CdmEntityContainer="AnaokuluBilgiSistemiEntities5">
+          <EntitySetMapping Name="Cocuk">
+            <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Cocuk">
+              <MappingFragment StoreEntitySet="Cocuk">
+                <ScalarProperty Name="Cad" ColumnName="Cad" />
+                <ScalarProperty Name="Csoyad" ColumnName="Csoyad" />
+                <ScalarProperty Name="Ccinsiyet" ColumnName="Ccinsiyet" />
+                <ScalarProperty Name="Cyas" ColumnName="Cyas" />
+                <ScalarProperty Name="Cveliadi" ColumnName="Cveliadi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesaj">
+            <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Mesaj">
+              <MappingFragment StoreEntitySet="Mesaj">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Etkinlik" ColumnName="Etkinlik" />
+                <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+                <ScalarProperty Name="GeldiMi" ColumnName="GeldiMi" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="CocukAdi" ColumnName="CocukAdi" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

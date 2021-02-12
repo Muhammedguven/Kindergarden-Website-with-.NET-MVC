@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnaokuluBilgiSistemiModelStoreContainer" CdmEntityContainer="AnaokuluBilgiSistemiEntities4">
+    <EntitySetMapping Name="Cocuk">
+      <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Cocuk">
+        <MappingFragment StoreEntitySet="Cocuk">
+          <ScalarProperty Name="Cad" ColumnName="Cad" />
+          <ScalarProperty Name="Csoyad" ColumnName="Csoyad" />
+          <ScalarProperty Name="Ccinsiyet" ColumnName="Ccinsiyet" />
+          <ScalarProperty Name="Cyas" ColumnName="Cyas" />
+          <ScalarProperty Name="Cveliadi" ColumnName="Cveliadi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="CocukAdi" ColumnName="CocukAdi" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="AnaokuluBilgiSistemiModel.Messages">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Etkinlik" ColumnName="Etkinlik" />
+          <ScalarProperty Name="Yemek" ColumnName="Yemek" />
+          <ScalarProperty Name="GeldiMi" ColumnName="GeldiMi" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

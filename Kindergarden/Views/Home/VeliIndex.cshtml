@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Kindergarden.Models.Users>
+@{
+    ViewBag.Title = "VeliIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head{
+    <style type="text/css">
+        body {
+            background-color: #d9534f;
+            background-image: url('../../Images/bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        table, tr, th {
+            color: #ffffff;
+        }
+
+        a.my-class {
+            color: #f0ad4e
+        }
+
+        a.navbar-brand {
+            color: #ffffff
+        }
+        
+        button {
+            border-radius: 12px;
+            border-collapse: unset;
+            font-size: 24px;
+           
+        }
+    </style>
+    }
+    <div class="form-group, center-block">
+
+        @try
+        {
+            foreach (Kindergarden.Models.Users a in Model)
+            {
+                <h2 class="text-center"> Hoş geldiniz @a.Ad </h2>
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+
+        <button class="btn-default" onclick="location.href='@Url.Action("GelenMesaj", "Home")'">Mesajlar</button>
+        <br />
+        <br />
+        <button class="btn-default" onclick="location.href='@Url.Action("CocukBilgileri", "Home")'">Çocuğumun bilgileri</button>
+        <br />
+        <br />
+        <button class="btn-default" onclick="location.href='@Url.Action("Index", "Home")'">Çıkış Yap</button>
+    </div>
+
